@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard',[\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::controller(\App\Http\Controllers\PostsController::class)->group(function () {
-        Route::get('/', 'index')->name('home')->excludedMiddleware(['auth']);
+        Route::get('/', 'index')->name('home')->withoutMiddleware(['auth']);
         Route::get('/posts/create', 'create')->name('post.create');
     });
 });
