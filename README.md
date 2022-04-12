@@ -18,6 +18,19 @@ Laravel and Vue 3 TODO App
 
 `php artisan migrate --seed` The seeder sets up user roles, permissions and super Ad
 
+
+### Local Development
+This assumes you have required environment for Laravel development
+
+`npm run watch` to watch assets changes
+
+`php artisan serve`
+
+### Or Start Docker instance
+In case you don't have local set up
+
+// TODO::
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
