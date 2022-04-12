@@ -36,8 +36,8 @@
                 </div>
             </main>
 
-            <footer class="px-6 py-4 text-gray-800 bg-white">
-                <div class="container flex flex-col items-center justify-center mx-auto md:flex-row">
+            <footer class="px-6 py-4 text-gray-800 bg-white fixed bottom-0 w-full">
+                <div class="container text-center mx-auto md:flex-row">
                     <p>{{config('app.name')}} - {{date('Y')}}</p>
                 </div>
             </footer>
