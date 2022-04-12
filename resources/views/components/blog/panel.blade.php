@@ -11,7 +11,7 @@
             </span>
         </div>
         @can('create-posts')
-        <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-green-600 rounded hover:bg-green-500 mt-4 text-center">Create Post</a>
+        <a href="{{route('post.create')}}" class="px-2 py-1 font-bold text-gray-100 bg-green-600 rounded hover:bg-green-500 mt-4 text-center">Create Post</a>
         @endcan
     </div>
 </div>
