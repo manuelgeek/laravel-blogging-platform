@@ -4,10 +4,9 @@
         <div class="mt-4"><a href="#" class="text-lg font-medium text-gray-700 hover:underline">Build
                 Your New Idea with Laravel Freamwork.</a></div>
         <div class="flex items-center justify-between mt-4">
-            <div class="flex items-center"><img
-                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                    alt="avatar" class="object-cover w-8 h-8 rounded-full"><a href="#"
-                                                                              class="mx-3 text-sm text-gray-700 hover:underline">Alex John</a></div><span
+            <div class="flex items-center">
+                <x-blog.avatar />
+                <a href="#" class="mx-3 text-sm text-gray-700 hover:underline">Alex John</a></div><span
                 class="text-sm font-light text-gray-600">Jun 1, 2020</span>
         </div>
     </div>

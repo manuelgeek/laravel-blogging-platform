@@ -13,13 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::controller(\App\Http\Controllers\PostsController::class)->group(function () {
+        Route::get('/', 'index')->name('home');
+        Route::get('/posts/create', 'create')->name('post.create');
+    });
 });
 require __DIR__.'/auth.php';
