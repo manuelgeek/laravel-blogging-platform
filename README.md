@@ -16,7 +16,7 @@ Laravel and Vue 3 TODO App
 
 `npm run dev` build tailwindcss assets
 
-`php artisan migrate --seed` The seeder sets up user roles, permissions and super Ad
+`php artisan migrate --seed` The seeder sets up user roles, permissions and super Admin
 
 
 ### Local Development
