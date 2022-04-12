@@ -22,15 +22,25 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
+
+            <footer class="px-6 py-4 text-gray-800 bg-white">
+                <div class="container flex flex-col items-center justify-center mx-auto md:flex-row">
+                    <p>{{config('app.name')}} - {{date('Y')}}</p>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
