@@ -12,11 +12,15 @@
                         class="text-sm font-light text-gray-700">Created {{$post->user->posts()->count()}} Posts</span></p>
             </span>
         </div>
-        @can('edit-posts')
-            <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-blue-600 rounded hover:bg-blue-500 mt-4 text-center">Edit Post</a>
-        @endcan
-        @can('delete-posts')
-            <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-red-600 rounded hover:bg-red-500 mt-4 text-center">Edit Post</a>
-        @endcan
+        @isauthor($post)
+            @can('edit-posts')
+                <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-blue-600 rounded hover:bg-blue-500 mt-4 text-center">Edit Post</a>
+            @endcan
+        @endisauthor
+        @isauthor($post)
+            @can('delete-posts')
+                <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-red-600 rounded hover:bg-red-500 mt-4 text-center">Edit Post</a>
+            @endcan
+        @endisauthor
     </div>
 </div>
