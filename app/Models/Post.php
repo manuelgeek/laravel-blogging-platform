@@ -9,7 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
-    const CREATED_AT = 'publication_date';
+//    const CREATED_AT = 'publication_date';
+
+    protected $fillable = ['title', 'slug', 'description'];
+
+    protected $with = ['user'];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

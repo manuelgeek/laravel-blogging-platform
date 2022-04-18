@@ -8,15 +8,17 @@
     <x-blog.layout>
         <x-blog.filter />
 
-        <x-blog.post-card />
-        <x-blog.post-card />
-        <x-blog.post-card />
+        @forelse($posts as $post)
+            <x-blog.post-card :post="$post" />
+        @empty
+            <x-blog.no-posts />
+        @endforelse
 
-        <x-blog.pagination />
+        <x-blog.pagination :posts="$posts" />
 
         <x-slot:sidebar>
-            <x-blog.authors-card />
-            <x-blog.recent-card />
+            <x-blog.authors-card :authors="$authors" />
+            <x-blog.recent-card :recentPosts="$recentPosts" />
         </x-slot>
     </x-blog.layout>
 </x-app-layout>

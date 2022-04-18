@@ -4,10 +4,10 @@
         <div class="mt-4">
             <span class="flex items-center">
                 <x-blog.avatar />
-                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">{{auth()->user()->name}}</a>
+                <p><a href="{{route('dashboard', auth()->user()->username)}}" class="mx-1 font-bold text-gray-700 hover:underline">{{auth()->user()->name}}</a>
                     <br>
                     <span
-                        class="text-sm font-light text-gray-700">Created 23 Posts</span></p>
+                        class="text-sm font-light text-gray-700">Created {{auth()->user()->posts()->count()}} Posts</span></p>
             </span>
         </div>
         @can('create-posts')

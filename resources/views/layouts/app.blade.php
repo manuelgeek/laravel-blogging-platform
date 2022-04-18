@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -42,5 +43,7 @@
                 </div>
             </footer>
         </div>
+        <script src="{{ asset('js/iziToast.js') }}"></script>
+        @include('vendor.lara-izitoast.toast')
     </body>
 </html>

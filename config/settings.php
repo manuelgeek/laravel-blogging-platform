@@ -5,5 +5,6 @@ return [
         'super-admin' => 'Super Admin',
         'admin' => 'Admin',
         'user' => 'User'
-    ]
+    ],
+    'pagination' => 15
 ];

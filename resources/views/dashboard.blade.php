@@ -7,11 +7,13 @@
 
 
     <x-blog.layout>
-        <x-blog.post-card />
-        <x-blog.post-card />
-        <x-blog.post-card />
+        @forelse($posts as $post)
+            <x-blog.post-card :post="$post" />
+        @empty
+            <x-blog.no-posts />
+        @endforelse
 
-        <x-blog.pagination />
+        <x-blog.pagination :posts="$posts" />
 
         <x-slot:sidebar>
             <x-blog.panel />

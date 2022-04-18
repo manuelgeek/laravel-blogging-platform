@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,8 +13,13 @@ class DashboardController extends Controller
         $this->middleware('permission:view-posts', ['only' => ['index']]);
     }
 
-    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index($username = null)
     {
-        return view('dashboard');
+        $posts = Post::latest()->when($username, function ($q) use ($username){
+            return $q->whereHas('user', function ($q) use ($username) {
+                return $q->whereUsername($username);
+            });
+        })->paginate(config('settings.pagination', 15));
+        return view('dashboard')->withPosts($posts);
     }
 }
