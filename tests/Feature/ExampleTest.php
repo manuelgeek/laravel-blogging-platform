@@ -20,17 +20,4 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->prepareForTests();
-    }
-
-    private function prepareForTests()
-    {
-        Artisan::call('migrate:fresh');
-        Artisan::call('db:seed');
-        $this->app->make(\Spatie\Permission\PermissionRegistrar::class)->registerPermissions();
-    }
-
 }

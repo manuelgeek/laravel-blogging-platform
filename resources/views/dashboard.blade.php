@@ -7,6 +7,8 @@
 
 
     <x-blog.layout>
+        <x-blog.filter />
+
         @forelse($posts as $post)
             <x-blog.post-card :post="$post" />
         @empty

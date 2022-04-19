@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/', 'index')->name('home')->withoutMiddleware(['auth']);
         Route::get('/posts/create', 'create')->name('post.create');
         Route::post('/posts/create', 'store')->name('post.store');
-        Route::get('/posts/{post:slug}', 'show')->name('post.show');
+        Route::get('/posts/{post:slug}', 'show')->name('post.show')->withoutMiddleware(['auth']);
     });
 });
 require __DIR__.'/auth.php';
