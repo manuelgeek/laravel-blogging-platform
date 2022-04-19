@@ -30,10 +30,75 @@ This assumes you have required environment for Laravel development
 
 `php artisan serve`
 
-### Or Start Docker instance
-In case you don't have local set up
+### The News API imports
+The External news API data is imported after every 1 minutes. In ideal production development, this should be 3,4 hours as described in order to have latest news.
 
-// TODO::
+The news are queued and run when the server is free to do so.
+
+To run the scheduler locally;
+
+` php artisan schedule:work
+`
+
+Then, run the queues;
+
+`php artisan queue:work` or `php artisan queue:listen`
+
+
+## Docker
+In case you don't have local set up
+### Set up
+- Make sure you have docker installed
+- Assumes you have your .env file - in case you're using automated CD/CD -  you can add step to create .env from .env.example and adding values,
+- Take NOTE of `DB_HOST` value
+
+database env vars - for demo purposes inside docker, update .env as;
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=web_blogging_platform
+DB_USERNAME=root
+DB_PASSWORD=password
+
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_DRIVER=redis
+REDIS_HOST=redis
+```
+
+### Start docker
+`docker-compose up -d`
+
+Migrations(in Dockerfile) and Seeders(mandatory to set up roles)
+
+run migrations(optional)
+
+`docker-compose exec app php artisan migrate`
+
+seed data to set up roles
+
+`docker-compose exec app php artisan db:seed`
+
+optional
+
+`docker-compose exec app php artisan config:cache`
+
+you can run more commands via
+
+`docker-compose exec app [command here]`
+
+access you app via
+
+`http:your_ip:8000` or `localhost:8000`
+
+[extra] - to force  create images
+
+`docker-compose up -d --force-recreate --no-deps --build`
+
+### Running Tests
+
+`php artisan run test`
 
 ## License
 
