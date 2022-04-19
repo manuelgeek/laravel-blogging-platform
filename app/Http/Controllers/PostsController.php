@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\User;
+use App\Services\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -39,9 +40,7 @@ class PostsController extends Controller
 
     public function store(PostRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title).'-'.time();
-        auth()->user()->posts()->create($data);
+        (new Posts())->create($request->all());
         notify()->success('Post created successfully');
         return to_route('dashboard');
     }

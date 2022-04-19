@@ -12,6 +12,10 @@ Laravel and Vue 3 TODO App
 
 `cp .env.example .env` Then add necessary env vars; DB, Mail etc
 
+`QUEUE_CONNECTION=database`
+
+`ADMIN_PASSWORD=somestring`
+
 `npm install`
 
 `npm run dev` build tailwindcss assets

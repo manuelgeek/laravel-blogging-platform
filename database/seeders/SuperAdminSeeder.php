@@ -17,10 +17,10 @@ class SuperAdminSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => 'ALX Super-Admin',
-            'username' => 'ALX-Super-Admin',
-            'email' => 'admin@mail.com',
-            'password' => bcrypt('secret@15'),
+            'name' => 'Super-Admin',
+            'username' => 'Super-Admin',
+            'email' => config('settings.admin-user.email'),
+            'password' => bcrypt(config('settings.admin-user.password')),
             'email_verified_at' => now(),
         ]);
 

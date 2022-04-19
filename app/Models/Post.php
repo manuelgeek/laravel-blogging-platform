@@ -11,7 +11,7 @@ class Post extends Model
 
 //    const CREATED_AT = 'publication_date';
 
-    protected $fillable = ['title', 'slug', 'description'];
+    protected $fillable = ['title', 'slug', 'description', 'user_id', 'created_at'];
 
     protected $with = ['user'];
 

@@ -6,5 +6,10 @@ return [
         'admin' => 'Admin',
         'user' => 'User'
     ],
-    'pagination' => 15
+    'admin-user' => [
+        'email' => 'admin@mail.com',
+        'password' => env('ADMIN_PASSWORD', 'secret@15')
+    ],
+    'pagination' => 15,
+    'posts-import-url' => 'https://sq1-api-test.herokuapp.com/posts'
 ];
