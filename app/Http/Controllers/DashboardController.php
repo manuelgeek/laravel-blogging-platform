@@ -15,9 +15,11 @@ class DashboardController extends Controller
 
     public function index($username = null)
     {
-        $posts = Post::latest()->when($username, function ($q) use ($username){
-            return $q->whereHas('user', function ($q) use ($username) {
+        $posts = Post::latest()->whereHas('user', function ($q) use ($username) {
+            return $q->when($username, function ($q) use ($username){
                 return $q->whereUsername($username);
+            }, function ($q){
+                return $q->whereId(auth()->id());
             });
         })->paginate(config('settings.pagination', 15));
         return view('dashboard')->withPosts($posts);

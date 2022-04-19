@@ -101,6 +101,8 @@ access you app via link;
 
 `docker-compose up -d --force-recreate --no-deps --build`
 
+Make sure to `php artisan config:clear` before fall back to using localhost
+
 ## Running Tests
 
 `php artisan run test`
