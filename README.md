@@ -30,8 +30,13 @@ This assumes you have required environment for Laravel development
 
 `php artisan serve`
 
+### Logging In
+Create an account/Login to create blog posts
+
+You can get super Admin credentials in `config/settings.php`
+
 ### The News API imports
-The External news API data is imported after every 1 minutes. In ideal production development, this should be 3,4 hours as described in order to have latest news.
+The External news API data is imported after every 1 minutes. In ideal production development, this should be 3,4 hours as described in order to have the latest news.
 
 The news are queued and run when the server is free to do so.
 
@@ -76,7 +81,7 @@ run migrations(optional)
 
 `docker-compose exec app php artisan migrate`
 
-seed data to set up roles
+seed data to set up roles and super Admin
 
 `docker-compose exec app php artisan db:seed`
 
@@ -99,6 +104,13 @@ access you app via link;
 ## Running Tests
 
 `php artisan run test`
+
+## What I would have done extra/better given more time
+- Better UI and tweaks; infinite scroll
+- Add posts search
+- Handle catching blog data with Workbox; stale while revalidate approach and add click to view new posts on new data load
+- Add Browser tests and end-to-end tests
+- Increase test coverage for the code
 
 ## License
 
