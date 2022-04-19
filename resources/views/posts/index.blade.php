@@ -17,7 +17,9 @@
         <x-blog.pagination :posts="$posts" />
 
         <x-slot:sidebar>
-            <x-blog.authors-card :authors="$authors" />
+            @if($authors->count())
+                <x-blog.authors-card :authors="$authors" />
+            @endif
             <x-blog.recent-card :recentPosts="$recentPosts" />
         </x-slot>
     </x-blog.layout>

@@ -14,7 +14,6 @@ services:
             SERVICE_NAME: app
             SERVICE_TAGS: dev
             CONTAINER_ROLE: app
-            DB_HOST: db
         working_dir: /var/www
         volumes:
             - ./:/var/www
@@ -86,6 +85,8 @@ services:
             SESSION_DRIVER: redis
             QUEUE_DRIVER: redis
             REDIS_HOST: redis
+        networks:
+            - app-network
 
     queue:
         image: digitalocean.com/php
@@ -100,6 +101,8 @@ services:
             SESSION_DRIVER: redis
             QUEUE_DRIVER: redis
             REDIS_HOST: redis
+        networks:
+            - app-network
 
 
 #Docker Networks

@@ -13,6 +13,11 @@ if [ "$role" = "app" ]; then
     php /var/www/artisan migrate
     php-fpm
 elif [ "$role" = "queue" ]; then
+    while [ true ]
+    do
+      php /var/www/artisan queue:work --verbose --tries=3 --timeout=90 &
+      sleep 60
+    done
     echo "Queue role"
     php /var/www/artisan queue:work --verbose --tries=3 --timeout=90
 elif [ "$role" = "scheduler" ]; then

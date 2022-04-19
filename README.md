@@ -1,8 +1,8 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## TODO App
+## Web Blog App
 
-Laravel and Vue 3 TODO App
+> Laravel Web Blog sample App.
 
 ### Set up
 
@@ -80,23 +80,23 @@ seed data to set up roles
 
 `docker-compose exec app php artisan db:seed`
 
-optional
+NOTE: The `start.sh` file takes care of schedulers and queued jobs that auto imports the Eternal Posts from API.
 
-`docker-compose exec app php artisan config:cache`
+Ideally, the `60s` interval is for demo purposes, in normal running of the App, 3/4 hts interval makes much sense
 
-you can run more commands via
+You can also run more commands via
 
 `docker-compose exec app [command here]`
 
-access you app via
+access you app via link;
 
 `http:your_ip:8000` or `localhost:8000`
 
-[extra] - to force  create images
+[Extra] - to force  create images
 
 `docker-compose up -d --force-recreate --no-deps --build`
 
-### Running Tests
+## Running Tests
 
 `php artisan run test`
 
