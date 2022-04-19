@@ -17,10 +17,13 @@ class PostsController extends Controller
 
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $posts = Post::latest()->paginate(config('settings.pagination', 15));
+        $posts = Post::when(request()->has('filter'), function ($q) {
+            return @request()->filter === 'latest' ? $q->latest() : $q->oldest();
+        }, function ($q) {
+            return $q->latest();
+        })->paginate(config('settings.pagination', 15));
         $authors = User::role(config('settings.user_types.user'))->take(5)->get();
         $recentPosts = Post::latest()->take(3)->get();
-
         return view('posts.index')->withPosts($posts)->withAuthors($authors)->withRecentPosts($recentPosts);
     }
 
