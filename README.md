@@ -39,28 +39,29 @@ You can get super Admin credentials in `config/settings.php`
 ### The News API imports
 The External news API data is imported after every 1 minutes. In ideal production development, this should be 3,4 hours as described in order to have the latest news.
 
-The news are queued and run when the server is free to do so. Laravel also adds option to run the schedular on multiple servers.
+The news are queued and run trhough a schedular.
 
 To run the scheduler locally;
 
 ` php artisan schedule:work
 `
 
-Then, run the queues;
+Then, run the queues; don't stop the schedular command yet;
 
 `php artisan queue:work` or `php artisan queue:listen`
 
-For more on auto calling this, look at the next [Docker](#Docker) section.
+For more on auto scalling this, look at the next [Docker](#Docker) section.
 
 
 ## Docker
 In case you don't have local set up
+
 ### Set up
 - Make sure you have docker installed
 - Assumes you have your .env file - in case you're using automated CD/CD -  you can add step to create .env from .env.example and adding values,
-- Take NOTE of `DB_HOST` value
+- Take NOTE of `DB_HOST` value and the redis values below 
 
-database env vars - for demo purposes inside docker, update .env as;
+database env vars; update the .env values as;
 ```dotenv
 DB_CONNECTION=mysql
 DB_HOST=db
