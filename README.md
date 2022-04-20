@@ -91,10 +91,12 @@ NOTE: The `start.sh` file takes care of schedulers and queued jobs that auto imp
 
 Ideally, the `60s` interval is for demo purposes, in normal running of the App, 3/4 hts interval makes much sense.
 
-#### scalling
+#### Scalling
 The schedular and the queues are all run on different docker containers, all different from the main web server. With this, he workloads are split in different container and can be scalled independently.
 
-We can achieve multilpe containers running the queues, the schedular, and the web server
+We can achieve multilpe containers running the queues, the schedular, and the web server.
+
+#### More docker commands
 
 You can also run more commands via
 
