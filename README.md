@@ -119,11 +119,9 @@ Make sure to `php artisan config:clear` before fall back to using localhost
 `php artisan run test`
 
 ## What I would have done extra/better given more time
-- Better UI and tweaks; infinite scroll
-- Add posts search
+- Better UI and tweaks; infinite scroll instead of pagination, more interactivity with Alpine JS, Livewire
 - Handle catching blog data with Workbox; stale while revalidate approach and add click to view new posts on new data load
 - Add push notifications to notify new posts
-- Add Browser tests and end-to-end tests
 - Increase test coverage for the code
 
 ## License
