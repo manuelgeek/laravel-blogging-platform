@@ -38,7 +38,7 @@ You can get super Admin credentials in `config/settings.php`
 ### The News API imports
 The External news API data is imported after every 1 minutes. In ideal production development, this should be 3,4 hours as described in order to have the latest news.
 
-The news are queued and run when the server is free to do so.
+The news are queued and run when the server is free to do so. Laravel also adds option to run the schedular on multiple servers.
 
 To run the scheduler locally;
 
@@ -48,6 +48,8 @@ To run the scheduler locally;
 Then, run the queues;
 
 `php artisan queue:work` or `php artisan queue:listen`
+
+For more on auto calling this, look at the next [Docker](#Docker) section.
 
 
 ## Docker
@@ -87,7 +89,12 @@ seed data to set up roles and super Admin
 
 NOTE: The `start.sh` file takes care of schedulers and queued jobs that auto imports the Eternal Posts from API.
 
-Ideally, the `60s` interval is for demo purposes, in normal running of the App, 3/4 hts interval makes much sense
+Ideally, the `60s` interval is for demo purposes, in normal running of the App, 3/4 hts interval makes much sense.
+
+#### scalling
+The schedular and the queues are all run on different docker containers, all different from the main web server. With this, he workloads are split in different container and can be scalled independently.
+
+We can achieve multilpe containers running the queues, the schedular, and the web server
 
 You can also run more commands via
 
@@ -111,6 +118,7 @@ Make sure to `php artisan config:clear` before fall back to using localhost
 - Better UI and tweaks; infinite scroll
 - Add posts search
 - Handle catching blog data with Workbox; stale while revalidate approach and add click to view new posts on new data load
+- Add push notifications to notify new posts
 - Add Browser tests and end-to-end tests
 - Increase test coverage for the code
 
