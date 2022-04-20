@@ -5,6 +5,17 @@
 
 > Laravel Web Blog sample App.
 
+### Features
+- Laravel 9, PHP 8, Tailwindcss
+- Authentication
+- Creating/Viewing Blogs
+- Set up user roles and permissions
+- Schedular to queue jobs to create Post API data
+- Github Actions CI - automated tests
+- Used Docker to split the different services; webserver, schedular serice and queue service to different containers
+- The queues are saved in redis
+- Added unit tests for the posts and schedular
+
 ### Set up
 
 `composer install`
@@ -51,6 +62,12 @@ Then, run the queues; don't stop the schedular command yet;
 `php artisan queue:work` or `php artisan queue:listen`
 
 For more on auto scalling this, look at the next [Docker](#Docker) section.
+
+## Running Tests
+
+Tests are also automated in Github through Github Actions
+
+`php artisan run test`
 
 
 ## Docker
@@ -114,9 +131,6 @@ access you app via link;
 
 Make sure to `php artisan config:clear` before fall back to using localhost
 
-## Running Tests
-
-`php artisan run test`
 
 ## What I would have done extra/better given more time
 - Better UI and tweaks; infinite scroll instead of pagination, more interactivity with Alpine JS, Livewire
