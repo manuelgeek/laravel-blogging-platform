@@ -108,12 +108,14 @@ seed data to set up roles and super Admin
 
 NOTE: The `start.sh` file takes care of schedulers and queued jobs that auto imports the Eternal Posts from API.
 
-Ideally, the `60s` interval is for demo purposes, in normal running of the App, 3/4 hts interval makes much sense.
+Ideally, the `60s` interval is for demo purposes, in normal running of the App, 2 or 3 hrs interval makes much sense.
 
 #### Scalling
-The schedular and the queues are all run on different docker containers, all different from the main web server. With this, he workloads are split in different container and can be scalled independently.
+The schedular and the queues are all run on different docker containers, all different from the main web server. With this, the workloads are split into different containers and can be scalled independently.
 
-We can achieve multilpe containers running the queues, the schedular, and the web server.
+We can achieve multiple containers running the queues, the schedular, and the web server.
+
+Distributing the load to the different instances can be managed by a load balancer
 
 #### More docker commands
 
